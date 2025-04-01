@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>나나네스토어</title>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Gowun Batang', serif;
-      background-color: #f4f1e6;
-      color: #333;
+      background-color: #e9e4d4;
+      color: #3a3a3a;
     }
     header {
-      background-color: #d0e6df;
+      background-color: #c8d6c3;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -23,11 +23,11 @@
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #35524a;
+      color: #4b5a4c;
       font-weight: bold;
     }
     .hero {
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1e/Ghibli_forest_style.jpg');
+      background-image: url('https://i.imgur.com/hcv4sY6.jpg');
       background-size: cover;
       background-position: center;
       padding: 8rem 2rem;
@@ -37,6 +37,7 @@
     }
     .hero h1 {
       font-size: 2rem;
+      font-family: 'Nanum Brush Script', cursive;
       margin-bottom: 0;
     }
     .products {
@@ -49,36 +50,42 @@
     .product {
       background-color: #ffffff;
       border-radius: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       width: 300px;
       padding: 1rem;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
     }
     .product img {
       width: 100%;
       border-radius: 1rem;
+      border: 3px solid #d0c2a9;
     }
     .product h3 {
       margin: 1rem 0 0.5rem;
+      font-family: 'Nanum Brush Script', cursive;
+      font-size: 1.4rem;
     }
     .product p {
       font-size: 0.9rem;
-      color: #666;
+      color: #555;
     }
     .buy-button {
       margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #a4c3b2;
-      color: white;
-      border: none;
+      padding: 0.6rem 1.2rem;
+      background-color: #cbbf9b;
+      color: #3a3a3a;
+      border: 2px solid #8b7d6b;
       border-radius: 0.5rem;
-      cursor: pointer;
       text-decoration: none;
+      font-family: 'Gowun Batang', serif;
       display: inline-block;
-      font-weight: bold;
     }
     .buy-button:hover {
-      background-color: #88b39b;
+      background-color: #b4a67a;
     }
 
     /* 반응형 스타일 */
@@ -140,4 +147,5 @@
   </section>
 </body>
 </html>
+
 
