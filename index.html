@@ -39,14 +39,27 @@
         opacity: 0;
       }
     }
-    header {
-      background-color: rgba(200, 214, 195, 0.85);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+  header {
+  background-color: rgba(200, 214, 195, 0.85);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 로고 박스 정렬 */
+.logo-area {
+  display: flex;
+  align-items: center;
+}
+
+/* 이미지 크기 조정 */
+.logo-img {
+  height: 50px;
+  object-fit: contain;
+}
+
     nav a {
       margin: 0 1rem;
       text-decoration: none;
@@ -142,16 +155,14 @@
   </style>
 </head>
 <body>
-  <header>
-    <h2>나나네스토어</h2>
-    <nav>
-      <a href="#products">제품소개</a>
-      <a href="#contact">문의</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo-area">
+    <img src="assets/nananeland-logo.png" alt="NANANELAND 로고" class="logo-img">
+  </div>
+</header>
 
   <section class="hero">
-    <h1> 동화속 나나네스토어에 오신 걸 환영합니다🌿</h1>
+    <h1> 나나네랜드에 오신 걸 환영합니다🌿</h1>
   </section>
 
   <section class="products" id="products">
