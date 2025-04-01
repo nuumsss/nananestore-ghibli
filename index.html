@@ -9,11 +9,32 @@
     body {
       margin: 0;
       font-family: 'Gowun Batang', serif;
-      background-image: url('https://images.unsplash.com/photo-1528150177509-0c6910fbb93d?auto=format&fit=crop&w=1650&q=80');
+      background-image: url('A_semi-realistic_Studio_Ghibli-inspired_digital_pa.png');
       background-attachment: fixed;
       background-size: cover;
       background-position: center;
       color: #3a3a3a;
+      overflow-x: hidden;
+    }
+    .leaf {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      background-image: url('https://pngimg.com/uploads/leaf/leaf_PNG36775.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fall linear infinite;
+      z-index: 9999;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
     }
     header {
       background-color: rgba(200, 214, 195, 0.85);
@@ -30,7 +51,7 @@
       font-weight: bold;
     }
     .hero {
-      background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1650&q=80');
+      background-image: url('A_semi-realistic_Studio_Ghibli-inspired_digital_pa.png');
       background-size: cover;
       background-position: center;
       padding: 8rem 2rem;
@@ -94,8 +115,6 @@
     .buy-button:hover {
       background-color: #b4a67a;
     }
-
-    /* 반응형 스타일 */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -152,5 +171,16 @@
       <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/6395667312" target="_blank">구매하기</a>
     </div>
   </section>
+
+  <!-- 나뭇잎 효과 -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const leaf = document.createElement('div');
+      leaf.classList.add('leaf');
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(leaf);
+    }
+  </script>
 </body>
 </html>
