@@ -53,10 +53,12 @@
   display: flex;
   align-items: center;
 }
-
+.center-logo {
+  justify-content: center;
+}
 /* 이미지 크기 조정 */
 .logo-img {
-  height: 50px;
+  height: 100px;
   object-fit: contain;
 }
 
@@ -156,10 +158,11 @@
 </head>
 <body>
 <header>
-  <div class="logo-area">
+  <div class="logo-area center-logo">
     <img src="assets/nananeland-logo.png" alt="NANANELAND 로고" class="logo-img">
   </div>
 </header>
+
 
   <section class="hero">
     <h1> 나나네랜드에 오신 걸 환영합니다🌿</h1>
