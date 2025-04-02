@@ -11,28 +11,10 @@
       font-family: 'Gowun Batang', serif;
       color: #3a3a3a;
       overflow-x: hidden;
-    }
-
-    .background {
-      background-image: url('assets/nananeland.png');
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    @media (max-width: 768px) {
-      .background {
-        background-image: url('assets/nananeland.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: top center;
-      }
+      background: linear-gradient(to bottom, transparent 60vh, #fff 60vh), url('assets/nananeland.png') no-repeat top center, url('assets/field-bg.png') no-repeat bottom center;
+      background-size: 100% auto, 100% auto, 100% auto;
+      background-attachment: scroll, scroll, scroll;
+      background-repeat: no-repeat;
     }
 
     header {
@@ -66,7 +48,6 @@
       text-align: center;
       color: #fff;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-      margin-bottom: 0;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -82,8 +63,9 @@
       justify-content: center;
       padding: 0 2rem 4rem;
       gap: 2rem;
-     background-color: transparent;
-  backdrop-filter: none;
+      background: transparent;
+      backdrop-filter: none;
+      border-radius: 0;
       margin-top: 0;
     }
     .product {
@@ -154,8 +136,6 @@
   </style>
 </head>
 <body>
-  <div class="background"></div>
-
   <header>
     <div class="logo-area">
       <img src="assets/nananeland-logo.png" alt="NANANELAND 로고" class="logo-img">
