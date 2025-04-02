@@ -11,142 +11,183 @@
       font-family: 'Gowun Batang', serif;
       color: #3a3a3a;
       overflow-x: hidden;
-      background: linear-gradient(to bottom, transparent 60vh, #fff 60vh), url('assets/nananeland.png') no-repeat top center, url('assets/field-bg.png') no-repeat bottom center;
-      background-size: 100% auto, 100% auto, 100% auto;
-      background-attachment: scroll, scroll, scroll;
-      background-repeat: no-repeat;
+      /* 배경색은 하늘색 느낌으로 설정하거나 제거하고 아래 섹션 배경으로 처리 */
+      background-color: #e0f7ff; /* 예시 하늘색 */
     }
 
-    header {
-      background-color: rgba(255, 255, 255, 0.4);
-      padding: 1rem;
+    /* 최상단 로고 영역 (기존 header 역할) */
+    .top-logo-area {
+      padding: 1rem 0; /* 상하 패딩 */
       text-align: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      backdrop-filter: blur(4px);
-    }
-    .logo-area {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-color: transparent; /* 배경 투명 */
     }
     .logo-img {
-      height: 150px;
-      max-width: 90%;
+      /* 이미지 크기는 참조 이미지의 상단 로고 크기에 맞게 조절 */
+      height: auto;
+      width: 250px; /* 너비 조절 예시 */
+      max-width: 70%; /* 화면 너비에 따라 최대 크기 제한 */
       object-fit: contain;
     }
 
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      font-family: 'Nanum Brush Script', cursive;
-      background-color: rgba(0, 0, 0, 0.3);
-      padding: 1rem 2rem;
-      border-radius: 1rem;
+    /* 가게 이미지 영역 (기존 hero 대체) */
+    .shop-visual {
+      /* 가게 이미지를 배경으로 설정 */
+      background-image: url('assets/nananeland.png');
+      background-size: cover; /* 이미지가 영역을 꽉 채우도록 */
+      background-position: center center; /* 이미지 중앙 정렬 */
+      background-repeat: no-repeat;
+      /* 높이는 이미지 비율과 화면 크기에 맞게 조절 */
+      height: 65vh; /* 화면 높이의 일정 비율 사용 예시 */
+      width: 100%;
+      display: block; /* 블록 요소로 만들어 너비 100% 차지 */
+      /* 참조 이미지처럼 가게 이미지 바로 아래 상품 섹션이 오도록 margin 제거 */
+      margin-bottom: 0;
     }
 
+    /* 상품 리스트 영역 */
     .products {
+      /* 상품 영역 배경은 노란 꽃밭 이미지 */
+      background-image: url('assets/field-bg.png');
+      background-size: cover; /* 배경 이미지 크기 조절 */
+      background-position: center bottom; /* 이미지 하단 중앙 정렬 */
+      background-repeat: no-repeat;
+      /* 패딩으로 내용과 배경 사이에 공간 확보 */
+      padding: 3rem 1rem 5rem; /* 상단, 좌우, 하단 패딩 조절 */
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      padding: 0 2rem 4rem;
-      gap: 2rem;
-      background: transparent;
-      backdrop-filter: none;
-      border-radius: 0;
+      gap: 1.5rem; /* 상품 간 간격 */
+      /* 상품 섹션 상단이 가게 이미지 하단과 바로 이어지도록 */
       margin-top: 0;
+       /* body 배경색이 비치지 않도록 */
+      background-color: #fff; /* field-bg.png가 로드되기 전 흰색 배경 */
     }
+
+    /* 개별 상품 카드 */
     .product {
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.9); /* 배경 약간 투명하게 */
       border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      width: 50%;
-      max-width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 그림자 약간 연하게 */
+      width: calc(50% - 2rem); /* 기본 2열 레이아웃 (gap 고려) */
+      max-width: 320px; /* 최대 너비 제한 */
       padding: 1rem;
       text-align: center;
       transition: transform 0.3s ease;
+      display: flex; /* Flexbox 사용하여 내부 요소 정렬 */
+      flex-direction: column; /* 세로 방향 정렬 */
+      justify-content: space-between; /* 내부 요소 공간 분배 */
+      box-sizing: border-box; /* 패딩/테두리 포함 크기 계산 */
     }
     .product:hover {
       transform: translateY(-5px);
     }
     .product img {
       width: 100%;
-      border-radius: 1rem;
-      border: 3px solid #d0c2a9;
+      max-width: 100%; /* 이미지 너비가 카드 넘지 않도록 */
+      height: auto; /* 높이 자동 조절 */
+      border-radius: 0.5rem; /* 이미지 모서리 약간 둥글게 */
+      border: 2px solid #e0d8c4; /* 테두리 색상 변경 */
+      object-fit: cover; /* 이미지 비율 유지하며 채우기 */
+      aspect-ratio: 1 / 1; /* 이미지 비율 1:1 유지 (선택 사항) */
     }
     .product h3 {
-      margin: 1rem 0 0.5rem;
+      margin: 0.8rem 0 0.4rem;
       font-family: 'Nanum Brush Script', cursive;
-      font-size: 1.4rem;
+      font-size: 1.5rem; /* 글씨 크기 조절 */
     }
     .product p {
       font-size: 0.9rem;
       color: #555;
+      margin-bottom: 1rem; /* 버튼과의 간격 */
+      flex-grow: 1; /* 설명 텍스트가 남는 공간 차지 */
+      min-height: 40px; /* 최소 높이 확보 */
     }
     .buy-button {
-      margin-top: 1rem;
+      margin-top: auto; /* 버튼을 카드 하단에 위치시키기 */
       padding: 0.6rem 1.2rem;
-      background-color: #cbbf9b;
-      color: #3a3a3a;
-      border: 2px solid #8b7d6b;
+      background-color: #e6dbb9; /* 버튼 색상 조정 */
+      color: #4a4a4a; /* 버튼 텍스트 색상 조정 */
+      border: none; /* 테두리 제거 또는 스타일 변경 */
       border-radius: 0.5rem;
       text-decoration: none;
       font-family: 'Gowun Batang', serif;
+      font-weight: bold;
       display: inline-block;
+      cursor: pointer;
     }
     .buy-button:hover {
-      background-color: #b4a67a;
+      background-color: #d0c2a9; /* 호버 시 색상 변경 */
     }
 
+    /* 떨어지는 잎사귀 효과 (기존 유지) */
     .leaf {
       position: fixed;
       top: -50px;
-      width: 30px;
-      height: 30px;
+      width: 25px; /* 크기 약간 작게 */
+      height: 25px;
       background-image: url('assets/spring_leaf.png');
       background-size: contain;
       background-repeat: no-repeat;
       animation: fall linear infinite;
-      opacity: 0.8;
-      z-index: 10;
+      opacity: 0.7; /* 투명도 조절 */
+      z-index: 100; /* 상품 카드보다 위에 오도록 z-index 조정 */
       pointer-events: none;
     }
     @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+      /* X축 이동 추가하여 바람에 날리는 효과 */
+      50% { transform: translateX(calc(15px * var(--sway))) rotate(180deg); }
+      100% { transform: translateY(100vh) translateX(calc(30px * var(--sway))) rotate(360deg); opacity: 0; }
     }
 
+    /* 반응형 웹 디자인 */
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: center; }
-      .hero h1 { font-size: 2rem; padding: 0.8rem 1.2rem; }
-      .product { width: 100%; }
+      .shop-visual {
+        height: 55vh; /* 모바일에서 가게 이미지 높이 조절 */
+      }
+       .products {
+         padding: 2rem 1rem 4rem; /* 모바일 패딩 조절 */
+       }
+      .product {
+        /* 모바일에서는 1열로 표시 */
+        width: calc(100% - 2rem); /* 좌우 여백 고려한 전체 너비 */
+        max-width: 350px; /* 모바일 최대 너비 조절 */
+      }
+       .logo-img {
+         width: 200px; /* 모바일 로고 크기 */
+       }
     }
+     @media (max-width: 480px) {
+         .shop-visual {
+            height: 50vh; /* 더 작은 화면에서 높이 */
+         }
+         .product h3 {
+             font-size: 1.3rem;
+         }
+         .product p {
+             font-size: 0.85rem;
+         }
+         .buy-button {
+             padding: 0.5rem 1rem;
+         }
+     }
+
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo-area">
-      <img src="assets/nananeland-logo.png" alt="NANANELAND 로고" class="logo-img">
-    </div>
-  </header>
+  <!-- 1. 최상단 로고 -->
+  <div class="top-logo-area">
+    <img src="assets/nananeland-logo.png" alt="NANANELAND 로고" class="logo-img">
+  </div>
 
-  <section class="hero">
-    <h1>🌸 동화 속 나나네랜드에 오신 걸 환영해요 🌸</h1>
+  <!-- 2. 가게 일러스트 이미지 -->
+  <section class="shop-visual">
+    <!-- 내용은 없지만, 배경 이미지를 보여주는 역할 -->
   </section>
 
+  <!-- 3. 상품 리스트 (노란 꽃밭 배경 위에 표시) -->
   <section class="products" id="products">
+    <!-- 기존 상품 카드들 -->
     <div class="product">
       <img src="assets/mb.png" alt="몸빼바지 + 모자 세트">
       <h3>몸빼바지 + 모자 세트</h3>
@@ -165,19 +206,36 @@
       <p>여름철 필수템! 자외선 차단과 패션 포인트까지!</p>
       <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/6395667312" target="_blank">구매하기</a>
     </div>
+    <!-- 다른 상품들도 여기에 추가 -->
   </section>
 
-  <!-- 나뭇잎 효과 -->
+  <!-- 나뭇잎 효과 (스크립트 유지) -->
   <script>
-    for (let i = 0; i < 20; i++) {
+    const numLeaves = 20; // 잎사귀 개수
+    const body = document.body;
+
+    for (let i = 0; i < numLeaves; i++) {
       const leaf = document.createElement('div');
       leaf.classList.add('leaf');
-      leaf.style.left = Math.random() * 100 + 'vw';
-      leaf.style.animationDuration = (5 + Math.random() * 5) + 's';
-      leaf.style.animationDelay = (Math.random() * 5) + 's';
-      document.body.appendChild(leaf);
+
+      // 각 잎사귀의 애니메이션 지연 시간 및 지속 시간 랜덤 설정
+      const duration = 5 + Math.random() * 5; // 5초 ~ 10초 사이
+      const delay = Math.random() * 5; // 0초 ~ 5초 사이
+
+      // 좌우 흔들림 효과를 위한 랜덤 변수 추가
+      leaf.style.setProperty('--sway', (Math.random() - 0.5) * 2); // -1 에서 1 사이 값
+
+      leaf.style.left = Math.random() * 100 + 'vw'; // 시작 위치 랜덤
+      leaf.style.animationDuration = duration + 's';
+      leaf.style.animationDelay = delay + 's';
+
+      // 작은 잎사귀, 큰 잎사귀 랜덤 크기
+      const size = 15 + Math.random() * 15; // 15px ~ 30px 사이
+      leaf.style.width = size + 'px';
+      leaf.style.height = size + 'px';
+
+      body.appendChild(leaf);
     }
   </script>
 </body>
 </html>
-
