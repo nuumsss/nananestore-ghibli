@@ -11,21 +11,28 @@
       font-family: 'Gowun Batang', serif;
       color: #3a3a3a;
       overflow-x: hidden;
-      background-color: #fdfaf5;
     }
 
     .background {
       background-image: url('assets/nananeland.png');
       background-attachment: fixed;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: top center;
+      background-size: cover;
+      background-position: center;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 150vh;
+      height: 100%;
       z-index: -1;
+    }
+
+    @media (max-width: 768px) {
+      .background {
+        background-image: url('assets/nananeland.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top center;
+      }
     }
 
     header {
@@ -45,28 +52,34 @@
       align-items: center;
     }
     .logo-img {
-      height: 130px;
+      height: 150px;
       max-width: 90%;
       object-fit: contain;
     }
 
     .hero {
-      height: 90vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       text-align: center;
-      padding-bottom: 2rem;
       color: #fff;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
     .hero h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-family: 'Nanum Brush Script', cursive;
       background-color: rgba(0, 0, 0, 0.3);
       padding: 1rem 2rem;
       border-radius: 1rem;
+    }
+
+    .products-background {
+      background-image: url('assets/field-bg.png');
+      background-size: cover;
+      background-position: center;
+      padding: 4rem 0;
     }
 
     .products {
@@ -75,10 +88,11 @@
       justify-content: center;
       padding: 4rem 2rem;
       gap: 2rem;
-      backdrop-filter: blur(6px);
-      background-color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.4);
       border-radius: 1rem;
-      margin: 2rem;
+      margin: 0 auto;
+      max-width: 1200px;
+      backdrop-filter: blur(6px);
     }
     .product {
       background-color: rgba(255, 255, 255, 0.85);
@@ -141,7 +155,7 @@
 
     @media (max-width: 768px) {
       header { flex-direction: column; align-items: center; }
-      .hero h1 { font-size: 1.5rem; padding: 0.8rem 1.2rem; }
+      .hero h1 { font-size: 2rem; padding: 0.8rem 1.2rem; }
       .product { width: 100%; }
     }
   </style>
@@ -156,27 +170,29 @@
   </header>
 
   <section class="hero">
-    <h3>🌸 동화 속 나나네랜드에 오신 걸 환영해요 🌸</h3>
+    <h1>🌸 동화 속 나나네랜드에 오신 걸 환영해요 🌸</h1>
   </section>
 
-  <section class="products" id="products">
-    <div class="product">
-      <img src="assets/mb.png" alt="몸빼바지 + 모자 세트">
-      <h3>몸빼바지 + 모자 세트</h3>
-      <p>촌스럽지만 사랑스러운 플리츠 몸빼바지 + 모자 세트. 귀여운 촌캉스룩 완성!</p>
-      <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/11655031022" target="_blank">구매하기</a>
-    </div>
-    <div class="product">
-      <img src="assets/herhr.png" alt="베이스볼 스누피 조끼">
-      <h3>베이스볼 스누피 조끼</h3>
-      <p>귀여운 야구 유니폼 느낌의 스누피 조끼!</p>
-      <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/11658468226" target="_blank">구매하기</a>
-    </div>
-    <div class="product">
-      <img src="assets/sunhat.png" alt="썬캡 모자 모음">
-      <h3>썬캡 모자 모음</h3>
-      <p>여름철 필수템! 자외선 차단과 패션 포인트까지!</p>
-      <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/6395667312" target="_blank">구매하기</a>
+  <section class="products-background">
+    <div class="products" id="products">
+      <div class="product">
+        <img src="assets/mb.png" alt="몸빼바지 + 모자 세트">
+        <h3>몸빼바지 + 모자 세트</h3>
+        <p>촌스럽지만 사랑스러운 플리츠 몸빼바지 + 모자 세트. 귀여운 촌캉스룩 완성!</p>
+        <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/11655031022" target="_blank">구매하기</a>
+      </div>
+      <div class="product">
+        <img src="assets/herhr.png" alt="베이스볼 스누피 조끼">
+        <h3>베이스볼 스누피 조끼</h3>
+        <p>귀여운 야구 유니폼 느낌의 스누피 조끼!</p>
+        <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/11658468226" target="_blank">구매하기</a>
+      </div>
+      <div class="product">
+        <img src="assets/sunhat.png" alt="썬캡 모자 모음">
+        <h3>썬캡 모자 모음</h3>
+        <p>여름철 필수템! 자외선 차단과 패션 포인트까지!</p>
+        <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/6395667312" target="_blank">구매하기</a>
+      </div>
     </div>
   </section>
 
