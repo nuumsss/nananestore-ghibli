@@ -66,6 +66,7 @@
       text-align: center;
       color: #fff;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      margin-bottom: 0;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -75,30 +76,22 @@
       border-radius: 1rem;
     }
 
-    .products-background {
-      background-image: url('assets/field-bg.png');
-      background-size: cover;
-      background-position: center;
-      padding: 4rem 0;
-    }
-
     .products {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      padding: 4rem 2rem;
+      padding: 0 2rem 4rem;
       gap: 2rem;
+      backdrop-filter: blur(6px);
       background-color: rgba(255, 255, 255, 0.4);
       border-radius: 1rem;
-      margin: 0 auto;
-      max-width: 1200px;
-      backdrop-filter: blur(6px);
+      margin-top: 0;
     }
     .product {
       background-color: rgba(255, 255, 255, 0.85);
       border-radius: 1rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      width: 300px;
+      width: 50%;
       padding: 1rem;
       text-align: center;
       transition: transform 0.3s ease;
@@ -173,26 +166,24 @@
     <h1>🌸 동화 속 나나네랜드에 오신 걸 환영해요 🌸</h1>
   </section>
 
-  <section class="products-background">
-    <div class="products" id="products">
-      <div class="product">
-        <img src="assets/mb.png" alt="몸빼바지 + 모자 세트">
-        <h3>몸빼바지 + 모자 세트</h3>
-        <p>촌스럽지만 사랑스러운 플리츠 몸빼바지 + 모자 세트. 귀여운 촌캉스룩 완성!</p>
-        <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/11655031022" target="_blank">구매하기</a>
-      </div>
-      <div class="product">
-        <img src="assets/herhr.png" alt="베이스볼 스누피 조끼">
-        <h3>베이스볼 스누피 조끼</h3>
-        <p>귀여운 야구 유니폼 느낌의 스누피 조끼!</p>
-        <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/11658468226" target="_blank">구매하기</a>
-      </div>
-      <div class="product">
-        <img src="assets/sunhat.png" alt="썬캡 모자 모음">
-        <h3>썬캡 모자 모음</h3>
-        <p>여름철 필수템! 자외선 차단과 패션 포인트까지!</p>
-        <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/6395667312" target="_blank">구매하기</a>
-      </div>
+  <section class="products" id="products">
+    <div class="product">
+      <img src="assets/mb.png" alt="몸빼바지 + 모자 세트">
+      <h3>몸빼바지 + 모자 세트</h3>
+      <p>촌스럽지만 사랑스러운 플리츠 몸빼바지 + 모자 세트. 귀여운 촌캉스룩 완성!</p>
+      <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/11655031022" target="_blank">구매하기</a>
+    </div>
+    <div class="product">
+      <img src="assets/herhr.png" alt="베이스볼 스누피 조끼">
+      <h3>베이스볼 스누피 조끼</h3>
+      <p>귀여운 야구 유니폼 느낌의 스누피 조끼!</p>
+      <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/11658468226" target="_blank">구매하기</a>
+    </div>
+    <div class="product">
+      <img src="assets/sunhat.png" alt="썬캡 모자 모음">
+      <h3>썬캡 모자 모음</h3>
+      <p>여름철 필수템! 자외선 차단과 패션 포인트까지!</p>
+      <a class="buy-button" href="https://smartstore.naver.com/nananestore/products/6395667312" target="_blank">구매하기</a>
     </div>
   </section>
 
@@ -209,3 +200,4 @@
   </script>
 </body>
 </html>
+
