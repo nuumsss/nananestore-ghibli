@@ -14,13 +14,13 @@
       background-color: #e0f7ff; /* Fallback background */
     }
 
-    /* 최상단 로고 영역 수정 */
+    /* 최상단 로고 영역 */
     .top-logo-area {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      padding: 1rem 0; /* 패딩 유지 */
+      padding: 1rem 0;
       text-align: center;
       background-color: rgba(255, 255, 255, 0.45);
       backdrop-filter: blur(6px);
@@ -29,20 +29,16 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
     .logo-img {
-      /* --- 로고 높이 2배 증가 --- */
-      height: 200px; /* 기본 로고 높이 (100px -> 200px) */
+      height: 200px; /* 로고 높이 (2배 키운 상태) */
       width: auto;
-      max-width: 85%; /* 너무 커지지 않도록 최대 너비 약간 조정 */
+      max-width: 85%;
       object-fit: contain;
       vertical-align: middle;
     }
 
-    /* 가게 이미지 영역 수정 */
+    /* 가게 이미지 영역 */
     .shop-visual {
-      /* --- 로고 영역 높이 증가에 맞춰 상단 패딩 증가 --- */
-      /* 계산: 새 로고높이(200px) + 상하패딩(1rem*2=~32px) + 여유(10px) = ~242px */
-      padding-top: calc(200px + 2rem + 10px);
-
+      padding-top: calc(200px + 2rem + 10px); /* 로고 높이 반영 */
       background-image: url('assets/nananeland.png');
       background-size: cover;
       background-position: center center;
@@ -72,60 +68,74 @@
       z-index: 1;
     }
 
-    /* 개별 상품 카드 */
+    /* --- 개별 상품 카드 수정 --- */
     .product {
-      background-color: rgba(255, 255, 255, 0.9);
+      /* background-color: rgba(255, 255, 255, 0.9); /* 기존 배경 제거 */
+      background-color: rgba(255, 255, 255, 0.6); /* 반투명 흰색 배경 (투명도 조절 가능) */
+      backdrop-filter: blur(5px); /* 배경 블러 효과 (블러 강도 조절 가능) */
+      -webkit-backdrop-filter: blur(5px); /* Safari 지원 */
+
       border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* 그림자 약간 강조 */
+      /* border: 2px solid #e0d8c4; /* 기존 테두리 제거 */
+      border: 1px solid rgba(255, 255, 255, 0.3); /* 매우 연한 흰색 테두리 추가 (선택적) */
+
       width: calc(50% - 2rem);
       max-width: 320px;
-      padding: 1rem;
+      padding: 1.2rem; /* 패딩 약간 늘림 */
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* 그림자 트랜지션 추가 */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-sizing: border-box;
     }
     .product:hover {
-      transform: translateY(-5px);
+      transform: translateY(-7px); /* 호버 시 약간 더 올라가도록 */
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* 호버 시 그림자 더 강조 */
     }
     .product img {
       width: 100%;
       max-width: 100%;
       height: auto;
       border-radius: 0.5rem;
-      border: 2px solid #e0d8c4;
+      /* border: 2px solid #e0d8c4; /* 이미지 테두리 제거 */
       object-fit: cover;
       aspect-ratio: 1 / 1;
+      /* 이미지 자체에 그림자를 주어 입체감 부여 */
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem; /* 이미지와 텍스트 간 간격 */
     }
     .product h3 {
-      margin: 0.8rem 0 0.4rem;
+      margin: 0 0 0.5rem; /* 상단 마진 제거 */
       font-family: 'Nanum Brush Script', cursive;
-      font-size: 1.5rem;
+      font-size: 1.6rem; /* 제목 크기 약간 키움 */
+      color: #333; /* 텍스트 색상 약간 진하게 */
     }
     .product p {
       font-size: 0.9rem;
-      color: #555;
-      margin-bottom: 1rem;
+      color: #444; /* 본문 텍스트 색상 약간 진하게 */
+      margin-bottom: 1.2rem; /* 버튼과의 간격 */
       flex-grow: 1;
       min-height: 40px;
     }
     .buy-button {
       margin-top: auto;
-      padding: 0.6rem 1.2rem;
-      background-color: #e6dbb9;
+      padding: 0.7rem 1.4rem; /* 버튼 크기 약간 키움 */
+      background-color: #e1d4af; /* 버튼 색상 약간 변경 */
       color: #4a4a4a;
       border: none;
-      border-radius: 0.5rem;
+      border-radius: 0.7rem; /* 버튼 모서리 둥글게 */
       text-decoration: none;
       font-family: 'Gowun Batang', serif;
       font-weight: bold;
       display: inline-block;
       cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
     .buy-button:hover {
-      background-color: #d0c2a9;
+      background-color: #cfc39e; /* 호버 시 색상 변경 */
+      transform: scale(1.03); /* 호버 시 약간 커지는 효과 */
     }
 
     /* 떨어지는 잎사귀 효과 */
@@ -151,57 +161,54 @@
     /* 반응형 웹 디자인 */
     @media (max-width: 768px) {
        .logo-img {
-         /* --- 중간 크기 화면 로고 높이 2배 증가 --- */
-         height: 160px; /* 80px -> 160px */
+         height: 160px; /* 중간 크기 로고 높이 */
        }
        .shop-visual {
-         /* --- 로고 높이 변경에 따른 padding-top 재조정 --- */
-         /* 계산: 새 로고높이(160px) + 상하패딩(1rem*2=~32px) + 여유(10px) = ~202px */
-         padding-top: calc(160px + 2rem + 10px);
+         padding-top: calc(160px + 2rem + 10px); /* 중간 크기 패딩 */
        }
        .products {
          padding: 2rem 1rem 4rem;
        }
       .product {
-        width: calc(100% - 2rem);
+        width: calc(100% - 2rem); /* 모바일 1열 */
         max-width: 350px;
       }
     }
      @media (max-width: 480px) {
        .logo-img {
-         /* --- 작은 화면 로고 높이 2배 증가 --- */
-         height: 140px; /* 70px -> 140px */
+         height: 140px; /* 작은 크기 로고 높이 */
        }
        .shop-visual {
-         /* --- 로고 높이 변경에 따른 padding-top 재조정 --- */
-         /* 계산: 새 로고높이(140px) + 상하패딩(1rem*2=~32px) + 여유(10px) = ~182px */
-         padding-top: calc(140px + 2rem + 10px);
+         padding-top: calc(140px + 2rem + 10px); /* 작은 크기 패딩 */
        }
-         .product h3 {
-             font-size: 1.3rem;
-         }
-         .product p {
-             font-size: 0.85rem;
-         }
-         .buy-button {
-             padding: 0.5rem 1rem;
-         }
+       .product {
+           padding: 1rem; /* 작은 화면 패딩 원복 */
+       }
+       .product h3 {
+           font-size: 1.4rem; /* 작은 화면 제목 크기 */
+       }
+       .product p {
+           font-size: 0.85rem; /* 작은 화면 본문 크기 */
+       }
+       .buy-button {
+           padding: 0.6rem 1.2rem; /* 작은 화면 버튼 크기 */
+       }
      }
 
   </style>
 </head>
 <body>
-  <!-- 1. 최상단 로고 (고정, 반투명 블러, 크기 증가) -->
+  <!-- 1. 최상단 로고 -->
   <div class="top-logo-area">
     <img src="assets/nananeland-logo.png" alt="NANANELAND 로고" class="logo-img">
   </div>
 
-  <!-- 2. 가게 일러스트 이미지 (화면 꽉 채우도록) -->
+  <!-- 2. 가게 일러스트 이미지 -->
   <section class="shop-visual">
-    <!-- 내용은 없지만, 배경 이미지를 보여주는 역할 -->
+    <!-- 배경 이미지 표시 역할 -->
   </section>
 
-  <!-- 3. 상품 리스트 (노란 꽃밭 배경 위에 표시) -->
+  <!-- 3. 상품 리스트 -->
   <section class="products" id="products">
     <!-- 상품 카드들 -->
     <div class="product">
