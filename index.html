@@ -20,47 +20,39 @@
       top: 0;
       left: 0;
       right: 0;
-      /* 로고 크기 증가에 맞춰 패딩 조정 */
-      padding: 1rem 0; /* 상하 패딩 증가 */
+      /* 로고 크기 증가에 맞춰 패딩 유지 또는 조정 */
+      padding: 1rem 0; /* 기존 패딩 유지 */
       text-align: center;
-      background-color: rgba(255, 255, 255, 0.45); /* 투명도 약간 조정 */
-      backdrop-filter: blur(6px); /* 블러 약간 증가 */
+      background-color: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
     .logo-img {
-      /* 로고 높이 증가 */
-      height: 120px; /* 기본 로고 높이 키움 */
+      /* --- 로고 높이 증가 --- */
+      height: 100px; /* 기본 로고 높이 (예: 80px -> 100px) */
       width: auto;
-      max-width: 80%; /* 화면 대비 최대 너비 */
+      max-width: 80%;
       object-fit: contain;
       vertical-align: middle;
     }
 
     /* 가게 이미지 영역 수정 */
     .shop-visual {
-      /* 로고 영역 높이 증가에 맞춰 상단 패딩 증가 */
-      /* 계산: 로고높이(80px) + 상하패딩(1rem*2=32px) + 여유(10px) = ~122px */
-      padding-top: calc(80px + 2rem + 10px);
+      /* --- 로고 영역 높이 증가에 맞춰 상단 패딩 증가 --- */
+      /* 계산: 새 로고높이(100px) + 상하패딩(1rem*2=~32px) + 여유(10px) = ~142px */
+      padding-top: calc(100px + 2rem + 10px);
 
-      /* 배경 이미지 설정 */
       background-image: url('assets/nananeland.png');
-      /* 배경 이미지가 영역을 꽉 채우도록 cover 사용 */
       background-size: cover;
-      /* 이미지 중앙 정렬 */
       background-position: center center;
       background-repeat: no-repeat;
-
-      /* 높이를 화면 전체 높이(viewport height)로 설정 */
       height: 100vh;
-      /* box-sizing 추가하여 패딩 포함 높이 계산 용이하게 */
       box-sizing: border-box;
-
       width: 100%;
       display: block;
       margin-bottom: 0;
-      /* 배경색은 이미지 로딩 실패 시 또는 cover 여백 처리용 */
       background-color: #c5e8f7;
     }
 
@@ -76,9 +68,9 @@
       justify-content: center;
       gap: 1.5rem;
       margin-top: 0;
-      background-color: #fff; /* 꽃밭 이미지 로딩 전 배경 */
-       position: relative; /* Ensure products are above the shop visual's background if needed, though typically not required */
-       z-index: 1; /* Ensure products section is above the shop visual if overlap occurs */
+      background-color: #fff;
+      position: relative;
+      z-index: 1;
     }
 
     /* 개별 상품 카드 */
@@ -148,7 +140,7 @@
       background-repeat: no-repeat;
       animation: fall linear infinite;
       opacity: 0.7;
-      z-index: 999; /* 로고보다는 아래 (1000), 상품(1)보다는 위 */
+      z-index: 999;
       pointer-events: none;
     }
     @keyframes fall {
@@ -160,15 +152,13 @@
     /* 반응형 웹 디자인 */
     @media (max-width: 768px) {
        .logo-img {
-         /* 중간 크기 화면 로고 높이 */
-         height: 60px;
+         /* --- 중간 크기 화면 로고 높이 증가 --- */
+         height: 80px; /* 예: 60px -> 80px */
        }
        .shop-visual {
-         /* 로고 높이 변경에 따른 padding-top 재조정 */
-         /* 계산: 로고높이(60px) + 상하패딩(1rem*2=32px) + 여유(10px) = ~102px */
-         padding-top: calc(60px + 2rem + 10px);
-         /* 모바일에서는 높이를 약간 줄일 수 있음 (선택적) */
-         /* height: 90vh; */
+         /* --- 로고 높이 변경에 따른 padding-top 재조정 --- */
+         /* 계산: 새 로고높이(80px) + 상하패딩(1rem*2=~32px) + 여유(10px) = ~122px */
+         padding-top: calc(80px + 2rem + 10px);
        }
        .products {
          padding: 2rem 1rem 4rem;
@@ -180,13 +170,13 @@
     }
      @media (max-width: 480px) {
        .logo-img {
-         /* 작은 화면 로고 높이 */
-         height: 50px;
+         /* --- 작은 화면 로고 높이 증가 --- */
+         height: 70px; /* 예: 50px -> 70px */
        }
        .shop-visual {
-         /* 로고 높이 변경에 따른 padding-top 재조정 */
-         /* 계산: 로고높이(50px) + 상하패딩(1rem*2=32px) + 여유(10px) = ~92px */
-         padding-top: calc(50px + 2rem + 10px);
+         /* --- 로고 높이 변경에 따른 padding-top 재조정 --- */
+         /* 계산: 새 로고높이(70px) + 상하패딩(1rem*2=~32px) + 여유(10px) = ~112px */
+         padding-top: calc(70px + 2rem + 10px);
        }
          .product h3 {
              font-size: 1.3rem;
